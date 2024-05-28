@@ -44,6 +44,7 @@
     <Compile Include="Sources\Data.cs" />
     <Compile Include="Sources\DataGrid.cs" />
     <Compile Include="Sources\Main.cs" />
+    <Compile Include="Sources\Wrapper\Button.cs" />
     <Compile Include="Sources\Wrapper\Counter.cs" />
     <Compile Include="Sources\Wrapper\Input.cs" />
     <Compile Include="Sources\Wrapper\Mouse.cs" />

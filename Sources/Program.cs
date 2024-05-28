@@ -22,6 +22,7 @@ namespace SchoolFestival_Raking_System.Sources
                 ClearDrawScreen();
 
                 Input.Update();
+                Mouse.Update();
 
                 Main_Display.Draw();
 

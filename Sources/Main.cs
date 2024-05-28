@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,20 @@ namespace SchoolFestival_Raking_System.Sources
 
         public void Draw()
         {
-            Draw_MainDisplay();
+            DrawBox(0, 0, 1920, 1080, GetColor(255, 255, 255), TRUE);
+
+            if (!isCreatingScoreData)
+            {
+                Draw_SettingDisplay();
+            }
+            else
+            {
+                Draw_MainDisplay();
+            }
         }
 
         public void Draw_MainDisplay()
         {
-            DrawBox(0, 0, 1920, 1080, GetColor(255, 255, 255), TRUE);
-
             MyDrawStringToHandle(960, 20, "紙飛行機 スコアランキング速報", GetColor(255, 255, 255), FontHandle, GetColor(0, 0, 0), true);
 
             #region [ Draw DataGrid ]
@@ -83,8 +91,47 @@ namespace SchoolFestival_Raking_System.Sources
 
         public void Draw_SettingDisplay()
         {
+            MyDrawStringToHandle(960, 20, "スコア追加", GetColor(255, 255, 255), FontHandle, GetColor(0, 0, 0), true);
 
+            #region [ Draw NameSet ] 
+
+            Point Pos_NameSet = new Point(1880, 550);
+            int Button_Size = 100;
+            int Button_Interval = (Button_Size / 25);
+
+            DrawBox(
+                Pos_NameSet.X - (10 + 1) * Button_Size - Button_Interval,
+                Pos_NameSet.Y + (4 + 1) * Button_Size + Button_Interval,
+                Pos_NameSet.X + Button_Interval,
+                Pos_NameSet.Y - Button_Interval,
+                GetColor(50, 50, 50),
+                TRUE);
+
+            for(int i = 0; i < NameChar_List.Length / 5; i++)
+            {
+                for(int j = 0; j < 5; j++)
+                {
+                    if (NameChar_List[i * 5 + j].ToString() != "　")
+                    {
+                        DrawBox(
+                            Pos_NameSet.X - i * Button_Size - Button_Interval,
+                            Pos_NameSet.Y + j * Button_Size + Button_Interval,
+                            Pos_NameSet.X - (i + 1) * Button_Size + Button_Interval,
+                            Pos_NameSet.Y + (j + 1) * Button_Size - Button_Interval,
+                            GetColor(230, 230, 230),
+                            TRUE);
+                    }
+                }
+            }
+
+            #endregion 
         }
+
+        private string NameChar_List = "ABCDEあいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもや　ゆ　よらりるれろわをん　　";
+
+        private bool isCreatingScoreData = false;
+
+        #region [ Font ] 
 
         private int FontHandle = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 80, 0, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 5);
         private int DataGrid_FontHandle = CreateFontToHandle("HG創英角ﾎﾟｯﾌﾟ体", 50, 0, DX_FONTTYPE_ANTIALIASING_EDGE_8X8, -1, 4);
@@ -101,5 +148,7 @@ namespace SchoolFestival_Raking_System.Sources
 
             DrawStringToHandle(x + adjust_x, y + adjust_y, text, color, handle, edgecolor);
         }
+
+        #endregion
     }
 }

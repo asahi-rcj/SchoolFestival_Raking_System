@@ -10,8 +10,8 @@ namespace SchoolFestival_Raking_System.Sources
     {
         //ランキング管理に必要なデータを処理します。
 
-        public List<RankingData> Flying_Distance_Data;
-        public List<RankingData> Flying_Time_Data;
+        public List<RankingData> Flying_Distance_Data = new List<RankingData>();
+        public List<RankingData> Flying_Time_Data = new List<RankingData>();
 
         public class RankingData
         {
@@ -19,7 +19,7 @@ namespace SchoolFestival_Raking_System.Sources
             public int Score;
         }
 
-        public void Sort_List(List<RankingData> datas)
+        public void Sort_List(ref List<RankingData> datas)
         {
             datas.Sort((a, b) => {
                 return (b.Score - a.Score);

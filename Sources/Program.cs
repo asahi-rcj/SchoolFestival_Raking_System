@@ -1,5 +1,6 @@
 ﻿#pragma warning disable CS0465 // Finalize' メソッドを導入すると、デストラクターの呼び出しに影響する可能性があります
 
+using Amaoto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,12 @@ namespace SchoolFestival_Raking_System.Sources
                 Input.Update();
                 Mouse.Update();
 
+
                 Main_Display.Draw();
+
+                SetDrawBlendMode(DX_BLENDMODE_ALPHA, 196);
+                DrawCircle(Mouse.Point.x, Mouse.Point.y, 10, GetColor(30, 30, 30), TRUE);
+                SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
                 if (Input.IsPushedKey(KEY_INPUT_F11))
                 {
@@ -45,6 +51,8 @@ namespace SchoolFestival_Raking_System.Sources
 
             Finalize();
         }
+
+        public static Texture Background;
 
         public static Main Main_Display;
         public static Data Data;
@@ -81,6 +89,8 @@ namespace SchoolFestival_Raking_System.Sources
 
             Input = new Amaoto.Input();
             Mouse = new Amaoto.Mouse();
+
+            Background = new Texture("data.png");
         }
 
         static void Finalize()

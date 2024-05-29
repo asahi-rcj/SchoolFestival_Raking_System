@@ -8,4 +8,4 @@ C:\Users\0ren5\source\repos\asahi-rcj\SchoolFestival_Raking_System\obj\Debug\Sch
 C:\Users\0ren5\source\repos\asahi-rcj\SchoolFestival_Raking_System\Build\SchoolFestival_Raking_System.exe.config
 C:\Users\0ren5\source\repos\asahi-rcj\SchoolFestival_Raking_System\Build\SchoolFestival_Raking_System.exe
 C:\Users\0ren5\source\repos\asahi-rcj\SchoolFestival_Raking_System\Build\SchoolFestival_Raking_System.pdb
-C:\Users\0ren5\source\repos\asahi-rcj\SchoolFestival_Raking_System\obj\Debug\SchoolFe.740BB812.Up2Date
+C:\Users\0ren5\Source\Repos\asahi-rcj\SchoolFestival_Raking_System\obj\Debug\SchoolFestival_Raking_System.csproj.CopyComplete

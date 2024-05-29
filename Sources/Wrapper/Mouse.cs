@@ -128,6 +128,59 @@ namespace Amaoto
             }
         }
 
+        public bool isExistedInArea(int x1, int y1, int x2, int y2)
+        {
+            bool ret = false;
+
+            int[] compare_pos = new int[4];
+
+            if(x1 > x2)
+            {
+                if(y1 > y2)
+                {
+                    compare_pos[0] = x2;
+                    compare_pos[1] = y2;
+                    compare_pos[2] = x1;
+                    compare_pos[3] = y1;
+                }
+                else
+                {
+                    compare_pos[0] = x2;
+                    compare_pos[1] = y1;
+                    compare_pos[2] = x1;
+                    compare_pos[3] = y2;
+                }
+            }
+            else
+            {
+                if (y1 > y2)
+                {
+                    compare_pos[0] = x1;
+                    compare_pos[1] = y2;
+                    compare_pos[2] = x2;
+                    compare_pos[3] = y1;
+                }
+                else
+                {
+                    compare_pos[0] = x1;
+                    compare_pos[1] = y1;
+                    compare_pos[2] = x2;
+                    compare_pos[3] = y2;
+                }
+            }
+
+            if (this.Point.x >= compare_pos[0] &&
+                this.Point.x <= compare_pos[2] &&
+                this.Point.y >= compare_pos[1] &&
+                this.Point.y <= compare_pos[3])
+            {
+                ret = true;
+            }
+                
+
+            return ret;
+        }
+
         private readonly int[] Buttons;
 
         /// <summary>
